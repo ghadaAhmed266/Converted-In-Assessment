@@ -1,0 +1,42 @@
+<nav>
+<div class="logo">
+    <img src="images/Logo.png" alt="Logo">
+</div>
+<div class="search">
+    <div class="searchIcon"><img src="images/IconSearch.png" alt=""></div>
+    <input type="text" placeholder="Search for product" class="searchInput" (input)="onSearchQueryChange($event)">
+</div>
+<div class="buttons">
+    <div class="wish">
+        <span class="icon"><img src="images/IconWish.png" alt="wish"></span>
+        wishlist
+    </div>
+    <div class="cart-dropdown">
+        <div class="cart-button">
+            <span class="icon">
+                <img src="images/IconChart.png" alt="">
+            </span>
+            Cart <span class="count">({{ cart.length }})</span>
+        </div>
+        <div class="cart-dropdown-content">
+            <div *ngFor="let product of cart">
+            <p>{{ product.title }} - ${{ product.price }}  <a style="color: red;font-size: 16px;float: right;" (click)="removeFromCart(product.id)">x</a></p>
+            
+            </div>
+            <p *ngIf="cart.length === 0">Your cart is empty.</p>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="category">
+    <div *ngFor="let category of categories" >
+        <a>{{category}}</a>
+    </div>
+</section>
+<section class="address">
+    <img src="images/IconHome.png" alt="">
+    <div class="location">
+        <img src="images/IconSlash.png" class="slash">
+        <span>category</span>
+    </div>
+</section>
